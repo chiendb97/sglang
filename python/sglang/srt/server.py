@@ -817,9 +817,10 @@ class Engine:
 
     def encode(
         self,
-        prompt: Union[str, List[str], List[Dict], List[List[Dict]]],
+        prompt: Union[str, List[str], List[Dict], List[List[Dict]]] = None,
+        input_ids: Optional[Union[List[List[int]], List[int]]] = None,
     ):
-        obj = EmbeddingReqInput(text=prompt)
+        obj = EmbeddingReqInput(text=prompt, input_ids=input_ids)
 
         # get the current event loop
         loop = asyncio.get_event_loop()
